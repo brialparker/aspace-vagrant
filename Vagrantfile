@@ -22,10 +22,10 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 8081, host: 8081
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8089, host: 8089
-  config.vm.network "forwarded_port", guest: 8090, host: 8090
+  config.vm.network "forwarded_port", guest: 8081, host: 9081
+  config.vm.network "forwarded_port", guest: 8080, host: 9080
+  config.vm.network "forwarded_port", guest: 8089, host: 9089
+  config.vm.network "forwarded_port", guest: 8090, host: 9090
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -68,7 +68,10 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision 'shell', inline: 'yum install -y lsof'
-  config.vm.provision 'shell', inline: 'firewall-cmd --zone=public --add-port=8081/tcp --permanent'
+  config.vm.provision 'shell', inline: 'firewall-cmd --zone=public --add-port=9081/tcp --permanent'
+  config.vm.provision 'shell', inline: 'firewall-cmd --zone=public --add-port=9080/tcp --permanent'
+  config.vm.provision 'shell', inline: 'firewall-cmd --zone=public --add-port=9089/tcp --permanent'
+  config.vm.provision 'shell', inline: 'firewall-cmd --zone=public --add-port=9090/tcp --permanent'
   config.vm.provision 'shell', inline: 'firewall-cmd --reload'
 
   config.vm.provision "shell", path: 'scripts/jdk.sh'
