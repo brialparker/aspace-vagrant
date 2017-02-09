@@ -24,11 +24,11 @@ Now it's time to fire up ArchivesSpace! navigate to /vagrant/apps/aspace/archive
 ```
 ./archivesspace.sh
 ```
-It may take a few minutes to start up, but then you can point your browser to http://localhost:8080 (or whatever port you are using) and get started!
+It may take a few minutes to start up, but then you can point your browser to http://localhost:8080 (or whatever port** you are using) and get started!
 
 <i>Cue confetti</i>
 
 
 *This path can be changed in [aspace.sh](https://github.com/brialparker/aspace-vagrant/blob/develop/scripts/aspace.sh#L8), this is just a local practice when setting up vagrants.
 
-**Note: I have edited the [vagrantfile](https://github.com/brialparker/aspace-vagrant/blob/develop/Vagrantfile) to forward ports to 9XXX but this can be changed back to 8XXX.
+**If you need to, you can edit the [Vagrant file](https://github.com/brialparker/aspace-vagrant/blob/develop/Vagrantfile) to forward ports
